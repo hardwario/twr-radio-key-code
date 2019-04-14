@@ -3,7 +3,6 @@
 
 #define MULTIPLEKEYS -1
 
-
 // LED instance
 bc_led_t led;
 
@@ -82,11 +81,13 @@ int getKey(uint64_t keyCode)
 
 void application_init(void)
 {
+    // Initialize Battery Module
+    bc_module_battery_init();
+
     // Initialize matrix keyboard and clear code buffer that is storing password
     bc_matrix_init(&matrix, out_gpio, OUT_GPIO_LENGTH, in_gpio, IN_GPIO_LENGTH);
     bc_matrix_set_event_handler(&matrix, matrix_event_handler, NULL);
     memset(codeBuffer, 0, sizeof(codeBuffer));
-
 
     // Initialize LED
     bc_led_init(&led, BC_GPIO_LED, false, false);
