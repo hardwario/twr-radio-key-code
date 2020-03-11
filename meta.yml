@@ -1,0 +1,14 @@
+#article: https://www.bigclown.com/doc/projects/radio-co2-monitor/
+#video: https://youtu.be/jGxjl5v7kqE
+#images:
+#  - title:
+#    url: https://github.com/hardwario/website/blob/master/static/kits-images/co2-monitor/main.png
+#articles:
+  - title: Key Code Door Entry System with HARDWARIO IoT Kit
+    url: https://www.hackster.io/projects/b01e37/edit#story
+    description: Secure any building with this safe and easy solution.
+    images:
+      - url: https://hackster.imgix.net/uploads/attachments/1050354/_H2VdmaupoU.blob?auto=compress%2Cformat&w=900&h=675&fit=min
+assembly:
+  - name: HARDWARIO Core Module
+  - name: HARDWARIO Battery Module
