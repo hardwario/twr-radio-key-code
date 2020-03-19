@@ -3,7 +3,7 @@
 #images:
 #  - title:
 #    url: https://github.com/hardwario/website/blob/master/static/kits-images/co2-monitor/main.png
-#articles:
+articles:
   - title: Key Code Door Entry System with HARDWARIO IoT Kit
     url: https://www.hackster.io/projects/b01e37/edit#story
     description: Secure any building with this safe and easy solution.
