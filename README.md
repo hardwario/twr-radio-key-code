@@ -2,7 +2,7 @@
 
 # Firmware for simple keyboard key code entrance
 
-[![Travis](https://img.shields.io/travis/bigclownprojects/bcf-radio-key-code/master.svg)](https://travis-ci.org/bigclownprojects/bcf-radio-key-code)
+[![Travis](https://www.travis-ci.com/hardwario/twr-radio-key-code.svg?branch=master)](https://www.travis-ci.com/hardwario/twr-radio-key-code)
 [![Release](https://img.shields.io/github/release/bigclownprojects/bcf-radio-key-code.svg)](https://github.com/bigclownprojects/bcf-radio-key-code/releases)
 [![License](https://img.shields.io/github/license/bigclownprojects/bcf-radio-key-code.svg)](https://github.com/bigclownprojects/bcf-radio-key-code/blob/master/LICENSE)
 [![Twitter](https://img.shields.io/twitter/follow/hardwario_en.svg?style=social&label=Follow)](https://twitter.com/hardwario_en)
@@ -13,7 +13,7 @@ If you want to get more information about Core Module, firmware and how to work 
 
 **https://developers.hardwario.com/firmware/basic-overview/**
 
-User's application code (business logic) goes into `app/application.c`.
+User's application code (business logic) goes into `src/application.c`.
 
 ## License
 
