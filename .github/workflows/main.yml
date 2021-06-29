@@ -1,12 +1,10 @@
-# This is a basic workflow to help you get started with Actions
-
 name: build
 
 # Controls when the workflow will run
 on:
-  # Triggers the workflow on push or pull request events but only for the main branch
+  # Triggers the workflow on push or release events but only for the main or master(legacy) branch
   push:
-    branches: [ main, master]
+    branches: [main, master]
   release:
     types: [published]
 
@@ -22,7 +20,6 @@ jobs:
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
-      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v2
       - name: Cache pip
         uses: actions/cache@v2
@@ -37,18 +34,20 @@ jobs:
           path: ~/.platformio
           key: ${{ runner.os }}-${{ hashFiles('**/lockfiles') }}
 
+      # Install PlatformIO tools with pip
       - name: Install Platformio
         run: |
-          echo Hello, world!
           python -m pip install --upgrade pip
           pip install --upgrade platformio
       
+      # Compile the project to see if everything is alright
       - name: Compile the project
         env:
           VERSION: ${{env.GITHUB_TAG}}
         run: |
           pio run -e release
-          
+      
+      # Get url of newly created release
       - name: Get release
         if: ${{ github.event_name == 'release' }}
         id: get_release
@@ -56,12 +55,14 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ github.token }}
           
+      # Setup env variables for the release
       - name: Set env
         if: ${{ github.event_name == 'release' }}
         run: |
           echo "GITHUB_TAG=${GITHUB_REF#refs/*/}" >> $GITHUB_ENV
           echo "REPOSITORY_NAME=${GITHUB_REPOSITORY##*/}" >> $GITHUB_ENV
 
+      # Put the final firmware binary into the release
       - name: Release project
         if: ${{ github.event_name == 'release' }}
         uses: actions/upload-release-asset@v1.0.2
