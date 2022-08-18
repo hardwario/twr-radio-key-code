@@ -94,5 +94,5 @@ void application_init(void)
     twr_led_pulse(&led, 30);
 
     twr_radio_init(TWR_RADIO_MODE_NODE_SLEEPING);
-    twr_radio_pairing_request("code-terminal", VERSION);
+    twr_radio_pairing_request("code-terminal", FW_VERSION);
 }
